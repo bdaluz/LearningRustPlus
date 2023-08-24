@@ -62,8 +62,23 @@ function onChangeAside(rank) {
 
 
 function deleteServer() {
-    delete serverList[serverSelected - 1]
+
+    let marked = serverSelected - 1
+    delete serverList[marked]
+    console.log(updateLocalStorage)
     updateTables()
+
+    let t1 = localStorage.getItem('servers').split(',')
+
+
+    delete t1[marked * 5]
+    delete t1[marked * 5 + 1]
+    delete t1[marked * 5 + 2]
+    delete t1[marked * 5 + 3]
+    delete t1[marked * 5 + 4]
+
+
+    localStorage.setItem('servers', t1.join(','))
     onChangeAside(serverSelected)
 }
 
@@ -192,7 +207,6 @@ function addServer(num_storage = false) {
                 rank: Number(actual[3]),
                 ip: actual[4]
             })
-
         }
     }
 }
@@ -205,11 +219,67 @@ function editServer() {
 
 
 function applyChange() {
+    console.log(serverSelected)
+
+    let marked = serverSelected - 1
+
+    let iname = document.getElementById("addName");
+    let icount = document.getElementById("addCount");
+    let istatus = document.getElementById("addStatus");
+    let irank = document.getElementById("addRank");
+    let iip = document.getElementById("addIP");
+
+    if (iname.value.length > 4 && icount.value.length > 4 && iip.value.length > 4) {
+        istatus = istatus.checked === true ? "Online" : "Offline"
+        serverList[marked] = {
+            name: iname.value,
+            players: icount.value,
+            status: istatus,
+            rank: irank.value,
+            ip: iip.value
+        }
+
+        let t1 = localStorage.getItem('servers').split(',')
+
+
+
+        t1[marked * 5] = iname.value
+        t1[marked * 5 + 1] = icount.value
+        t1[marked * 5 + 2] = istatus
+        t1[marked * 5 + 3] = irank.value
+        t1[marked * 5 + 4] = iip.value
+
+
+        localStorage.setItem('servers', t1.join(','))
+
+        // updateLocalStorage.push(
+        //     iname.value,
+        //     icount.value,
+        //     istatus,
+        //     irank.value,
+        //     iip.value
+        // )
+        // localStorage.setItem('servers', updateLocalStorage);
+        console.log(updateLocalStorage);
+        hideModal();
+        updateTables();
+        if (localStorage.getItem('servers') !== null) {
+            alert('não vazio')
+        }
+    }
+    else {
+        if (iname.value.length < 5) {
+            alert("Server name has less than 5 characters")
+        }
+        else if(icount.value.length < 5){
+            alert("Players count has less than 5 characters")
+        }
+        else if(iip.value.length > 4){
+            alert("IP Adress has less than 5 characters")
+        }
+    }
 
 }
-
-
-
 
 
 
@@ -239,8 +309,19 @@ if (localStorage.getItem('servers') === null) {
     localStorage.setItem('servers', updateLocalStorage);
 }
 else {
+    console.log('pass')
     addServer(num_storage = true)
     updateLocalStorage = localStorage.getItem('servers').split(',')
+
+    console.log('-------------------------SERVERLIST----------------------------')
+    console.log(serverList)
+    console.log('------------------------LOCALSTORAGE---------------------------')
+    console.log(localStorage.getItem('servers'))
+    console.log('---------------------------SPLIT-(ATUAL)-----------------------')
+    console.log(updateLocalStorage)
+    console.log('---------------------------JOIN--------------------------------')
+    console.log(updateLocalStorage.join(','))
+    console.log('---------------------------------------------------------------')
 }
 
 
