@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rust Oficial Servers</title>
+</head>
+
+<body>
+    <main>
+        <div class="top-bar">
+            <p class="top-bar-p">Rust Servers</p>
+        </div>
+
+        <div class="header">
+            <img class="banner" src="./assets/rust-banner.png" alt="">
+        </div>
+
+        <div class="container">
+            <div>
+                <div class="sitename">
+                    <h1 class="title">Rust Servers Online</h1>
+                    <div id="btns">
+                        <button id="add" onclick="showModal()">&#43;</button>
+                    </div>
+                </div>
+                <h2 class="subtitle">Welcome on the Rust server list. Find all the best multiplayer servers for Rust.</h2>
+                <h3 class="description">The only aim in Rust is to survive. To do this you will need to overcome
+                    struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals for meat.
+                    Protect yourself from other players, and kill them for meat. Create alliances with other players and
+                    form a town.</h3>
+            </div>
+            <div class="content">
+                <table class="server-list">
+                    <thead>
+                        <tr>
+                            <th class="server-name">Server Name</th>
+                            <th class="players">Players</th>
+                            <th class="status">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                    </tbody>
+                </table>
+                <div class="contentaside">
+                    <aside id="aside-bar">
+                        <div>
+                            <strong>Server Name: </strong>
+                            <p id="servername"></p>
+                        </div>
+                        <div>
+                            <strong>Players: </strong>
+                            <p id="playercount"></p>
+                        </div>
+                        <div>
+                            <strong>Status: </strong>
+                            <p id="serverstatus"></p>
+                        </div>
+                        <div>
+                            <strong>Rank: </strong>
+                            <p id="serverrank"></p>
+                        </div>
+                        <div id="deleteserver">
+                            <div style="margin-bottom: 0;">
+                                <strong>IP: </strong>
+                                <p id="serverip"></p>
+                            </div>
+                            <div id="edit-del">
+                                <button onclick="editServer()"><img src="assets/edit-icon.png" alt="EDIT" width="40px"></button>
+                                <button onclick="deleteServer()"><img src="assets/trash-icon.png" alt="DELETE" width="40px"></button>
+                            </div>
+                        </div>
+                    </aside>
+                    <img id="img-aside" src="./assets/rust-aside.png" alt="rust image">
+                </div>
+            </div>
+        </div>
+        <div class="footer">© Copyright 2023 JubileuClass</div>
+        <div id="addmodal" class="addserver">
+            <div id="modalcontent">
+                <div class="modalheader">
+                    <h3 id="modaltitle">Add a new server to the list</h3>
+                    <span id="close" onclick="hideModal()">&times;</span>
+                </div>
+                <form class="serverform" action="javascript:void(0);">
+                <!-- <form class="serverform" action="javascript:void(0);" method="get" onsubmit="return (document.getElementById('addName').value.length && document.getElementById('addCount').value.length && document.getElementById('addIP').value.length  > 2);"> -->
+                    
+                    <label for="addName">Server Name</label>
+                    <input id="addName" type="text"><br>
+
+                    <label for="addCount">Players Count</label>
+                    <input id="addCount" type="text">
+                    
+                    <div style="display: flex; margin: 15px 0;">
+                        <input id="addStatus" type="radio" name="radin" style="transform: scale(2.5);">
+                        <label for="addStatus" style="margin: 0px 12px;">Online</label>
+                        <input id="addStatus2" type="radio" name="radin" style="transform: scale(2.5);" checked>
+                        <label for="addStatus2" style="margin: 0px 12px;">Offline</label>
+                    </div>
+
+                    <label for="addRank">Server Rank</label>
+                    <input id="addRank" type="number"><br>
+
+                    <label for="addIP">Server IP</label>
+                    <input id="addIP" type="text"><br>
+
+                    <button id="addBtn" onclick="addServer()">ADD SERVER</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./script.js"></script>
+
+</html>

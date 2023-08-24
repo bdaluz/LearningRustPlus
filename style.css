@@ -1,0 +1,304 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(./fonts/OpenSans.ttf);
+}
+
+
+:root {
+    --highlight-color: rgb(51, 9, 9);
+}
+
+
+body,
+main {
+    font-family: 'OpenSuns', Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    color: rgba(214, 180, 180, 0.8);
+    background-color: #000;
+}
+
+
+h1,
+h2,
+h3 {
+    color: rgba(214, 180, 180, 0.8);
+}
+
+
+a {
+    text-decoration: none;
+    color: #fd8a24;
+    font-weight: bold;
+}
+
+
+p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+
+
+
+
+
+
+
+
+.top-bar {
+    margin: 0;
+    padding: 0;
+}
+
+
+.top-bar-p {
+    margin: 0;
+    background-color: #333;
+    font-family: 'OpenSans', Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    padding: 18px;
+
+}
+
+
+.header {
+    width: 100%;
+    display: block;
+}
+
+
+.banner {
+    width: 100%;
+    display: block;
+}
+
+
+.sitename{
+    justify-content: space-between;
+    display: flex;
+}
+
+.title {
+    font-size: 56px;
+    line-height: 64px;
+    margin: 0;
+}
+
+
+#btns button{
+    background-color: rgb(206, 65, 43);
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    min-width: 7%;
+    border: 2px rgb(65, 5, 5) solid;
+}
+
+
+#btns button:hover{
+    cursor: pointer;
+}
+
+.subtitle {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+
+.description {
+    font-weight: normal;
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+
+
+.container {
+    padding: 30px 90px;
+}
+
+
+.content {
+    gap: 1%;
+    display: flex;
+    min-height: 62vh;
+}
+
+
+table.server-list {
+    border-collapse: collapse;
+    border: 1px solid rgb(51, 9, 9);
+    min-width: 69%;
+    max-height: 1500px;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+th {
+    border-bottom: 1px solid black;
+    padding-left: 0.6rem;
+    text-align: left;
+    font-size: 2rem;
+}
+
+
+td {
+    padding: 20px;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+
+tr {
+    text-justify: auto;
+}
+
+
+.greentext{
+    color: green;
+}
+
+.redtext{
+    color: rgb(154, 9, 9);
+}
+
+tbody tr:hover {
+    background-color: var(--highlight-color);
+}
+
+
+.server-name {
+    min-width: 50%;
+}
+
+
+.players {
+    min-width: 20%;
+}
+
+
+.status {
+    min-width: 30%;
+}
+
+
+div.contentaside{
+    border: 1px solid rgb(51, 9, 9);
+    min-width: 30%;
+}
+
+#deleteserver{
+    display: flex;
+    justify-content: space-between;
+}
+
+#edit-del button{
+    background-color: rgb(146, 18, 18);
+    border: 2px black solid;
+}
+
+#edit-del button:hover{
+    cursor: pointer;
+}
+
+
+
+#aside-bar {
+    display: none;
+    padding: 10px;
+    background-color: var(--highlight-color);
+}
+
+
+#img-aside{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#aside-bar div {
+    margin: 0 0 50px 0;
+    text-align: left;
+    font-size: 1.5rem;
+
+}
+
+.footer {
+    display: flex;
+    margin-top: auto;
+    background-color: #333;
+    height: 80px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.addserver{
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+#modalcontent{
+    padding: 20px;
+    background-color: rgba(157, 59, 59, 1);
+    color: white;
+    border: 3px solid #888;
+    min-width: 35%;
+    height: 800px;
+}
+
+
+.modalheader{
+    display: flex;
+    justify-content: center;
+}
+
+.modalheader h3{
+    color: white;
+    font-size: 30px;
+}
+
+#close {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.serverform input, .serverform button{
+    font-size: 30px;
+}
+
+.serverform{
+    font-size: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
